@@ -1,62 +1,55 @@
-# Project Title
+# Geany Template Automation
 
-Simple overview of use/purpose.
-
-## Description
-
-An in-depth paragraph about your project and overview of use.
+Geany lets a user use the file templates so that when user create a new file, so it can automatically be populated with the custom code snippet.Linux user can do this by creating (or modifying) the C++ template file in the Geany configuration folder. Here’s how:
 
 ## Getting Started
 
 ### Dependencies
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+* Any Linux Distro
 
 ### Installing
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+* For system-wide usage
+Open a terminal and run:
 
+```
+sudo cp newcpp.sh /usr/local/bin/newcpp
+sudo chmod +x /usr/local/bin/newcpp
+
+```
+* For user-specific usage:
+
+If you prefer using it just for your account, first ensure you have a ~/bin/ directory (and that it’s in your PATH). If not, create it and add it to your PATH:
+
+```
+mkdir -p ~/bin
+echo 'export PATH="$HOME/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+then copy the script to the bin folder
+
+```
+cp newcpp.sh ~/bin/newcpp
+chmod +x ~/bin/newcpp
+```
 ### Executing program
 
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
+Now, anywhere in your terminal you can simply run
 
-## Help
-
-Any advise for common problems or issues.
 ```
-command to run if program contains helper info
+newcpp filename.cpp
 ```
 
-## Authors
+This command will check if filename.cpp exists. If not, it will copy your template into that file and then open it in Geany.
 
-Contributors names and contact info
-
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
-
+By setting it up this way, you’ve made your custom file creation process available globally. Enjoy your streamlined workflow!
 ## Version History
 
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
 * 0.1
     * Initial Release
 
 ## License
 
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
-
-## Acknowledgments
-
-Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
+This project is free to use. 
